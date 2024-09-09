@@ -371,7 +371,7 @@ class FluttiumDriver {
       if (configuration.deviceId != null) ...['-d', configuration.deviceId!],
       if (configuration.flavor != null) ...['--flavor', configuration.flavor!],
       ...configuration.dartDefines.expand((e) => ['--dart-define', e]),
-      ['--web-port', '1337'],
+      ...['--web-port', '1337'],
     ];
     _logger.detail('Running command: ${commandArgs.join(' ')}');
 
