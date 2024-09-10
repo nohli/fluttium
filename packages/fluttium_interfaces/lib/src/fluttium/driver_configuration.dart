@@ -10,6 +10,7 @@ class DriverConfiguration extends Equatable {
     this.flavor,
     this.dartDefines = const [],
     this.deviceId,
+    this.webPort,
   });
 
   /// {@macro driver_configuration}
@@ -44,6 +45,9 @@ class DriverConfiguration extends Equatable {
 
   /// The device id to use for the driver.
   final String? deviceId;
+
+  /// The port to use for the web application.
+  final int? webPort;
 
   @override
   List<Object?> get props => [target, flavor, dartDefines, deviceId];
