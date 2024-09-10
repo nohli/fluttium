@@ -133,6 +133,8 @@ Multiple defines can be passed by repeating "--dart-define" multiple times.''',
 
   List<String> get _dartDefines => results['dart-define'] as List<String>;
 
+  int? get _webPort => results['web-port'] as int?;
+
   /// The file of the flow to run.
   File get _userFlowFile {
     if (results.rest.isEmpty || results.rest.first.isEmpty) {
@@ -299,6 +301,7 @@ Either adjust the constraint in the Fluttium configuration or update the CLI to 
         flavor: _flavor,
         dartDefines: [...fluttium.driver.dartDefines, ..._dartDefines],
         deviceId: results['device-id'] as String?,
+        webPort: _webPort,
       ),
     );
 
@@ -313,12 +316,6 @@ Either adjust the constraint in the Fluttium configuration or update the CLI to 
     if (fluttium.driver.deviceId == null) {
       _logger.err('No devices found.');
       return ExitCode.unavailable.code;
-    }
-
-    if (fluttium.driver.webPort != null) {
-      fluttium = fluttium.copyWith(
-        driver: fluttium.driver.copyWith(webPort: results['web-port'] as int?),
-      );
     }
 
     final driver = _driver(
