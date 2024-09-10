@@ -133,7 +133,7 @@ Multiple defines can be passed by repeating "--dart-define" multiple times.''',
 
   List<String> get _dartDefines => results['dart-define'] as List<String>;
 
-  int? get _webPort => results['web-port'] as int?;
+  String? get _webPort => results['web-port'] as String?;
 
   /// The file of the flow to run.
   File get _userFlowFile {
