@@ -27,7 +27,7 @@ class DriverConfiguration extends Equatable {
               [])
           .cast<String>(),
       deviceId: json['deviceId']?.toString(),
-      webPort: json['webPort'] as int?,
+      webPort: json['webPort'] as String?,
     );
   }
 
@@ -48,7 +48,7 @@ class DriverConfiguration extends Equatable {
   final String? deviceId;
 
   /// The port to use for the web application.
-  final int? webPort;
+  final String? webPort;
 
   @override
   List<Object?> get props => [target, flavor, dartDefines, deviceId, webPort];
@@ -60,7 +60,7 @@ class DriverConfiguration extends Equatable {
     @Deprecated('Use `target` instead') String? mainEntry,
     String? flavor,
     List<String>? dartDefines,
-    int? webPort,
+    String? webPort,
   }) {
     return DriverConfiguration(
       deviceId: deviceId ?? this.deviceId,
