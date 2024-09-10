@@ -96,6 +96,12 @@ Multiple defines can be passed by repeating "--dart-define" multiple times.''',
           'compact': 'A single line that updates dynamically.',
           'pretty': 'A nicely formatted output that works nicely with --watch.',
         },
+      )
+      ..addOption(
+        'web-port',
+        abbr: 'port',
+        help:
+            '''The port number for serving the web application. Must be between 1024 and 65535. Defaults to null if not provided.''',
       );
   }
 
@@ -308,6 +314,12 @@ Either adjust the constraint in the Fluttium configuration or update the CLI to 
     if (fluttium.driver.deviceId == null) {
       _logger.err('No devices found.');
       return ExitCode.unavailable.code;
+    }
+
+    if (fluttium.driver.webPort != null) {
+      fluttium = fluttium.copyWith(
+        driver: fluttium.driver.copyWith(webPort: results['web-port'] as int?),
+      );
     }
 
     final driver = _driver(
