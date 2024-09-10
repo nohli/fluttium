@@ -99,7 +99,6 @@ Multiple defines can be passed by repeating "--dart-define" multiple times.''',
       )
       ..addOption(
         'web-port',
-        abbr: 'port',
         help:
             '''The port number for serving the web application. Must be between 1024 and 65535. Defaults to null if not provided.''',
       );
