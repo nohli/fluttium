@@ -518,7 +518,7 @@ void main() {
 
         expect(tester.ready(), completes);
 
-        verify(() => RendererBinding.instance.rootPipelineOwner.semanticsOwner)
+        verify(() => binding.rootPipelineOwner.semanticsOwner)
             .called(equals(2));
         verify(() => semanticsOwner.rootSemanticsNode).called(equals(1));
         verify(() => binding.endOfFrame).called(equals(1));
