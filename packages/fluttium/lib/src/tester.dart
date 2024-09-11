@@ -23,7 +23,8 @@ class Tester {
 
   final Registry _registry;
 
-  SemanticsOwner get _semanticsOwner => _binding.pipelineOwner.semanticsOwner!;
+  SemanticsOwner? get _semanticsOwner =>
+      RendererBinding.instance.rootPipelineOwner.semanticsOwner;
 
   /// The current screen's media query information.
   MediaQueryData get mediaQuery =>
@@ -103,7 +104,7 @@ class Tester {
   ///
   /// The [text] can be a [String] that can also be used as a [RegExp].
   Future<SemanticsNode?> find(String text, {Duration? timeout}) async {
-    var nodes = _findNodes(_semanticsOwner.rootSemanticsNode!, text);
+    var nodes = _findNodes(_semanticsOwner?.rootSemanticsNode, text);
 
     final end = clock.now().add(timeout ?? const Duration(seconds: 10));
     while (nodes.isEmpty) {
@@ -111,15 +112,15 @@ class Tester {
       if (clock.now().isAfter(end)) {
         return null;
       }
-      nodes = _findNodes(_semanticsOwner.rootSemanticsNode!, text);
+      nodes = _findNodes(_semanticsOwner?.rootSemanticsNode, text);
     }
 
     return nodes.first;
   }
 
-  List<SemanticsNode> _findNodes(SemanticsNode node, String text) {
+  List<SemanticsNode> _findNodes(SemanticsNode? node, String text) {
     final nodes = <SemanticsNode>[];
-    node.visitChildren((n) {
+    node?.visitChildren((n) {
       // Add all descendants that match the pattern.
       if (!n.mergeAllDescendantsIntoThisNode) {
         nodes.addAll(_findNodes(n, text));
@@ -169,8 +170,7 @@ class Tester {
 
   /// Wait for the semantics tree to be fully build.
   Future<void> ready() async {
-    while (_binding.pipelineOwner.semanticsOwner == null ||
-        _binding.pipelineOwner.semanticsOwner!.rootSemanticsNode == null) {
+    while (_semanticsOwner?.rootSemanticsNode == null) {
       await _binding.endOfFrame;
     }
   }

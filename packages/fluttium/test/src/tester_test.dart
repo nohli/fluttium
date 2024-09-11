@@ -307,7 +307,8 @@ void main() {
         semanticsOwner = _MockSemanticsOwner();
 
         final pipelineOwner = _MockPipelineOwner();
-        when(() => binding.pipelineOwner).thenReturn(pipelineOwner);
+        when(() => RendererBinding.instance.rootPipelineOwner)
+            .thenReturn(pipelineOwner);
         when(() => pipelineOwner.semanticsOwner).thenReturn(semanticsOwner);
 
         rootNode = MockSemanticsNode();
@@ -493,7 +494,8 @@ void main() {
         semanticsOwner = _MockSemanticsOwner();
 
         final pipelineOwner = _MockPipelineOwner();
-        when(() => binding.pipelineOwner).thenReturn(pipelineOwner);
+        when(() => RendererBinding.instance.rootPipelineOwner)
+            .thenReturn(pipelineOwner);
         when(() => pipelineOwner.semanticsOwner).thenReturn(semanticsOwner);
 
         rootNode = MockSemanticsNode();
@@ -503,7 +505,8 @@ void main() {
       test('resolve when ready', () {
         expect(tester.ready(), completes);
 
-        verify(() => binding.pipelineOwner.semanticsOwner).called(equals(2));
+        verify(() => RendererBinding.instance.rootPipelineOwner.semanticsOwner)
+            .called(equals(2));
         verify(() => semanticsOwner.rootSemanticsNode).called(equals(1));
       });
 
@@ -515,7 +518,8 @@ void main() {
 
         expect(tester.ready(), completes);
 
-        verify(() => binding.pipelineOwner.semanticsOwner).called(equals(2));
+        verify(() => RendererBinding.instance.rootPipelineOwner.semanticsOwner)
+            .called(equals(2));
         verify(() => semanticsOwner.rootSemanticsNode).called(equals(1));
         verify(() => binding.endOfFrame).called(equals(1));
       });
