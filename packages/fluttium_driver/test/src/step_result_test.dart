@@ -18,7 +18,7 @@ void main() {
       final copied = state.copyWith(
         status: StepStatus.done,
         files: {
-          'file': [1, 2, 3]
+          'file': [1, 2, 3],
         },
         failReason: 'failReason',
       );
@@ -28,7 +28,7 @@ void main() {
       expect(
         copied.files,
         equals({
-          'file': [1, 2, 3]
+          'file': [1, 2, 3],
         }),
       );
       expect(copied.failReason, equals('failReason'));

@@ -38,7 +38,7 @@ class Registry {
         timeout: timeout,
       ),
       aliases: const [
-        Alias(['in'], #within)
+        Alias(['in'], #within),
       ],
     ),
     'swipe': ActionRegistration(
@@ -57,7 +57,7 @@ class Registry {
         timeout: timeout,
       ),
       aliases: const [
-        Alias(['in'], #within)
+        Alias(['in'], #within),
       ],
     ),
   };

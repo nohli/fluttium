@@ -118,7 +118,7 @@ void main() {
         (_) async => [
           GeneratedFile.created(
             path: '/project_directory/.fluttium_test_launcher.dart',
-          )
+          ),
         ],
       );
       launcherGeneratorHooks = _MockGeneratorHooks();
@@ -209,7 +209,7 @@ name: project_name
               'run',
               '/project_directory/.fluttium_test_launcher.dart',
               '-d',
-              'deviceId'
+              'deviceId',
             ]),
           ),
           runInShell: any(named: 'runInShell'),
@@ -352,11 +352,11 @@ name: project_name
                     'source': '''
 
     hosted: https://pub.dev/packages/hosted_action
-    version: ^1.2.3'''
+    version: ^1.2.3''',
                   },
                   {
                     'name': 'git_action_simple',
-                    'source': 'git@github.com/wolfenrain/git_action_simple'
+                    'source': 'git@github.com/wolfenrain/git_action_simple',
                   },
                   {
                     'name': 'git_action_advanced',
@@ -365,21 +365,21 @@ name: project_name
     git:
       url: git@github.com/wolfenrain/git_action_advanced
       ref: dev
-      path: packages/advanced'''
+      path: packages/advanced''',
                   },
                   {
                     'name': 'path_action',
                     'source': '''
 
-    path: /project_directory/path_action'''
+    path: /project_directory/path_action''',
                   }
                 ],
                 'steps': [
                   {
-                    'step': json.encode({'pressOn': 'Text'})
+                    'step': json.encode({'pressOn': 'Text'}),
                   },
                   {
-                    'step': json.encode({'expectVisible': 'Text'})
+                    'step': json.encode({'expectVisible': 'Text'}),
                   }
                 ],
               }),
@@ -456,7 +456,7 @@ name: project_name
                 'run',
                 '/project_directory/.fluttium_test_launcher.dart',
                 '-d',
-                'deviceId'
+                'deviceId',
               ]),
             ),
             runInShell: any(named: 'runInShell', that: isTrue),
@@ -512,7 +512,7 @@ name: project_name
               'stepName1',
               status: StepStatus.done,
               files: const {
-                'fileName': [1, 2, 3]
+                'fileName': [1, 2, 3],
               },
             ),
             StepState(
@@ -744,9 +744,9 @@ extension on MessageType {
           {'type': 'start'},
           {
             'type': 'data',
-            'data': r'"{\"type\":\"fatal\",\"data\":\"\\\"fatal reason\\\"\"}"'
+            'data': r'"{\"type\":\"fatal\",\"data\":\"\\\"fatal reason\\\"\"}"',
           },
-          {'type': 'done'}
+          {'type': 'done'},
         ].map((data) => utf8.encode('${json.encode(data)}\n'));
       case MessageType.announce:
         return [
@@ -754,9 +754,9 @@ extension on MessageType {
           {
             'type': 'data',
             'data':
-                '"{\\"type\\":\\"announce\\",\\"data\\":\\"\\\\\\"$stepName\\\\\\"\\"}"'
+                '"{\\"type\\":\\"announce\\",\\"data\\":\\"\\\\\\"$stepName\\\\\\"\\"}"',
           },
-          {'type': 'done'}
+          {'type': 'done'},
         ].map((data) => utf8.encode('${json.encode(data)}\n'));
       case MessageType.start:
         return [
@@ -764,7 +764,7 @@ extension on MessageType {
           {
             'type': 'data',
             'data':
-                '"{\\"type\\":\\"start\\",\\"data\\":\\"\\\\\\"$stepName\\\\\\"\\"}"'
+                '"{\\"type\\":\\"start\\",\\"data\\":\\"\\\\\\"$stepName\\\\\\"\\"}"',
           },
           {'type': 'done'},
         ].map((data) => utf8.encode('${json.encode(data)}\n'));
@@ -774,7 +774,7 @@ extension on MessageType {
           {
             'type': 'data',
             'data':
-                '"{\\"type\\":\\"done\\",\\"data\\":\\"\\\\\\"$stepName\\\\\\"\\"}"'
+                '"{\\"type\\":\\"done\\",\\"data\\":\\"\\\\\\"$stepName\\\\\\"\\"}"',
           },
           {'type': 'done'},
         ].map((data) => utf8.encode('${json.encode(data)}\n'));
@@ -784,7 +784,7 @@ extension on MessageType {
           {
             'type': 'data',
             'data':
-                '"{\\"type\\":\\"fail\\",\\"data\\":\\"[\\\\\\"$stepName\\\\\\",\\\\\\"reason\\\\\\"]\\"}"'
+                '"{\\"type\\":\\"fail\\",\\"data\\":\\"[\\\\\\"$stepName\\\\\\",\\\\\\"reason\\\\\\"]\\"}"',
           },
           {'type': 'done'},
         ].map((data) => utf8.encode('${json.encode(data)}\n'));
@@ -794,7 +794,7 @@ extension on MessageType {
           {
             'type': 'data',
             'data':
-                r'"{\"type\":\"store\",\"data\":\"[\\\"fileName\\\",[1,2,3]]\"}"'
+                r'"{\"type\":\"store\",\"data\":\"[\\\"fileName\\\",[1,2,3]]\"}"',
           },
           {'type': 'done'},
         ].map((data) => utf8.encode('${json.encode(data)}\n'));
