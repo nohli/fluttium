@@ -494,7 +494,7 @@ void main() {
         semanticsOwner = _MockSemanticsOwner();
 
         final pipelineOwner = _MockPipelineOwner();
-        when(() => RendererBinding.instance.rootPipelineOwner)
+        when(() => binding.rootPipelineOwner)
             .thenReturn(pipelineOwner);
         when(() => pipelineOwner.semanticsOwner).thenReturn(semanticsOwner);
 
