@@ -26,7 +26,12 @@ class _MockRegistry extends Mock implements Registry {}
 
 class _MockChannelBuffers extends Mock implements ChannelBuffers {}
 
-class _MockPipelineOwner extends Mock implements PipelineOwner {}
+class _MockPipelineOwner extends Mock implements PipelineOwner {
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return super.toString();
+  }
+}
 
 class _MockSemanticsOwner extends Mock implements SemanticsOwner {}
 
