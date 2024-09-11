@@ -505,7 +505,7 @@ void main() {
       test('resolve when ready', () {
         expect(tester.ready(), completes);
 
-        verify(() => RendererBinding.instance.rootPipelineOwner.semanticsOwner)
+        verify(() => binding.rootPipelineOwner.semanticsOwner)
             .called(equals(2));
         verify(() => semanticsOwner.rootSemanticsNode).called(equals(1));
       });
