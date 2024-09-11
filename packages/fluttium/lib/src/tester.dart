@@ -112,7 +112,7 @@ class Tester {
       if (clock.now().isAfter(end)) {
         return null;
       }
-      nodes = _findNodes(_semanticsOwner?.rootSemanticsNode, text);
+      nodes = _findNodes(_semanticsOwner!.rootSemanticsNode, text);
     }
 
     return nodes.first;
