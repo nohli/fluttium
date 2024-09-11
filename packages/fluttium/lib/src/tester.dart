@@ -170,7 +170,7 @@ class Tester {
 
   /// Wait for the semantics tree to be fully build.
   Future<void> ready() async {
-    while (_semanticsOwner?.rootSemanticsNode == null) {
+    while (_semanticsOwner!.rootSemanticsNode == null) {
       await _binding.endOfFrame;
     }
   }
