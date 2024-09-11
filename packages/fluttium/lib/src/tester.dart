@@ -24,7 +24,7 @@ class Tester {
   final Registry _registry;
 
   SemanticsOwner? get _semanticsOwner =>
-      RendererBinding.instance.rootPipelineOwner.semanticsOwner;
+      _binding.rootPipelineOwner.semanticsOwner;
 
   /// The current screen's media query information.
   MediaQueryData get mediaQuery =>
