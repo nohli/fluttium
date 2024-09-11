@@ -15,7 +15,7 @@ import 'package:fluttium/src/actions/scroll.dart';
 /// ```
 /// {@endtemplate}
 class Swipe extends Scroll {
-  /// {@template swipe}
+  /// {@macro swipe}
   Swipe({
     required super.within,
     required super.until,
