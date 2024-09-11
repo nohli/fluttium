@@ -17,7 +17,7 @@ class ExpectEnvironmentText extends Action {
   @override
   Future<bool> execute(Tester tester) async {
     if (!await const ExpectVisible(
-      text: "Environment: (Development|Staging|Production|None){1}",
+      text: 'Environment: (Development|Staging|Production|None){1}',
     ).execute(tester)) {
       return false;
     }
