@@ -104,7 +104,7 @@ class Tester {
   ///
   /// The [text] can be a [String] that can also be used as a [RegExp].
   Future<SemanticsNode?> find(String text, {Duration? timeout}) async {
-    var nodes = _findNodes(_semanticsOwner?.rootSemanticsNode, text);
+    var nodes = _findNodes(_semanticsOwner!.rootSemanticsNode, text);
 
     final end = clock.now().add(timeout ?? const Duration(seconds: 10));
     while (nodes.isEmpty) {
