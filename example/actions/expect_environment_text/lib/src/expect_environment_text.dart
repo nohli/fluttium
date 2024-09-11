@@ -16,7 +16,7 @@ class ExpectEnvironmentText extends Action {
   /// Called when it executes the action in a flow file.
   @override
   Future<bool> execute(Tester tester) async {
-    if (!await ExpectVisible(
+    if (!await const ExpectVisible(
       text: "Environment: (Development|Staging|Production|None){1}",
     ).execute(tester)) {
       return false;
